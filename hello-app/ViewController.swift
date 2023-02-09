@@ -12,6 +12,8 @@ class ViewController: UIViewController {
     var round = 1
     var score = 0
     var goalN = 0
+    
+   
 
     @IBOutlet weak var gameSlider: UISlider!
     @IBOutlet weak var goal: UILabel!
@@ -32,7 +34,6 @@ class ViewController: UIViewController {
     
     @IBAction func hitAction(_ sender: Any) {
         
-        
         let diff = abs(Int(floor(gameSlider.value)) - goalN)
         
         switch (diff) {
@@ -47,6 +48,12 @@ class ViewController: UIViewController {
             //
             score += 0
         }
+        
+        let alertController = UIAlertController(title: "Aler", message: "You've got \(score) points", preferredStyle: .alert)
+        
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        
+        self.present(alertController, animated: true, completion: nil)
         
         round += 1
         goalN = GenerateRandomValue()
@@ -81,6 +88,4 @@ class ViewController: UIViewController {
     func ResetSlider() {
         gameSlider.value = 50.0
     }
-    
 }
-
