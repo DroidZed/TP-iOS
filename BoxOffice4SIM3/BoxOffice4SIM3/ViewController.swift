@@ -17,6 +17,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         "Spenser Confidential",
         "The Irishman"
     ]
+    @IBOutlet weak var movieCell: UITableViewCell!
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.count

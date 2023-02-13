@@ -14,6 +14,7 @@
 		13229499299A355300C4938B /* BoxOffice4SIM3.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 13229497299A355300C4938B /* BoxOffice4SIM3.xcdatamodeld */; };
 		1322949B299A355500C4938B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1322949A299A355500C4938B /* Assets.xcassets */; };
 		1322949E299A355500C4938B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1322949C299A355500C4938B /* LaunchScreen.storyboard */; };
+		132294A6299A4E4700C4938B /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132294A5299A4E4700C4938B /* ViewController2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		1322949A299A355500C4938B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1322949D299A355500C4938B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1322949F299A355500C4938B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		132294A5299A4E4700C4938B /* ViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				1322948E299A355300C4938B /* AppDelegate.swift */,
 				13229490299A355300C4938B /* SceneDelegate.swift */,
 				13229492299A355300C4938B /* ViewController.swift */,
+				132294A5299A4E4700C4938B /* ViewController2.swift */,
 				13229494299A355300C4938B /* Main.storyboard */,
 				1322949A299A355500C4938B /* Assets.xcassets */,
 				1322949C299A355500C4938B /* LaunchScreen.storyboard */,
@@ -141,6 +144,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				132294A6299A4E4700C4938B /* ViewController2.swift in Sources */,
 				13229499299A355300C4938B /* BoxOffice4SIM3.xcdatamodeld in Sources */,
 				13229493299A355300C4938B /* ViewController.swift in Sources */,
 				1322948F299A355300C4938B /* AppDelegate.swift in Sources */,
