@@ -49,7 +49,7 @@ class ViewController: UIViewController {
             score += 0
         }
         
-        let alertController = UIAlertController(title: "Aler", message: "You've got \(score) points", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Alert", message: "You've got \(score) points", preferredStyle: .alert)
         
         alertController.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
         
