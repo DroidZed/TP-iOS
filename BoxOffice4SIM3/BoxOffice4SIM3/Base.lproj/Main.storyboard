@@ -42,13 +42,11 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="lW5-Br-y2L" kind="show" id="IYr-9z-DKO"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="ojg-rX-Kkf"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="uZf-5T-70v"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -57,17 +55,17 @@
                     </view>
                     <navigationItem key="navigationItem" title="Movies" id="05p-AY-Jpw"/>
                     <connections>
-                        <outlet property="movieCell" destination="hEH-kS-H0L" id="iN9-Hk-qnd"/>
+                        <segue destination="lW5-Br-y2L" kind="show" identifier="detailSeg" id="J45-nW-xWL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="353.43511450381681" y="-11.267605633802818"/>
         </scene>
-        <!--View Controller2-->
+        <!--Details View Controller-->
         <scene sceneID="cjI-Uz-0te">
             <objects>
-                <viewController id="lW5-Br-y2L" customClass="ViewController2" customModule="BoxOffice4SIM3" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="lW5-Br-y2L" customClass="DetailsViewController" customModule="BoxOffice4SIM3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3B6-Iv-DMS">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -107,6 +105,9 @@
                                         </fragment>
                                     </attributedString>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="addToFavsAction:" destination="lW5-Br-y2L" eventType="touchUpInside" id="ufU-88-MeY"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="HOh-hk-dHk"/>
@@ -114,14 +115,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="saa-vM-5j3"/>
                     <connections>
-                        <outlet property="addToFabBTn" destination="VF4-OC-PbO" id="4hY-se-Bav"/>
-                        <outlet property="movieArt" destination="QPK-VA-GPN" id="6hO-e2-YIe"/>
-                        <outlet property="movieTitle" destination="YDy-kl-Od4" id="FcK-QF-kl0"/>
+                        <outlet property="movieArt" destination="QPK-VA-GPN" id="p0c-og-LXP"/>
+                        <outlet property="movieTitle" destination="YDy-kl-Od4" id="E5B-Tp-nWl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tu6-cf-BTW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1310.6870229007634" y="54.929577464788736"/>
+            <point key="canvasLocation" x="1150" y="101"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="LkK-Za-imW">
@@ -160,7 +160,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="hmc-PB-KTJ">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="favCell" id="hmc-PB-KTJ">
                                         <rect key="frame" x="0.0" y="0.0" width="171" height="221"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="22B-5H-E6k">
@@ -211,7 +211,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="73A-fb-IS9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2240" y="42"/>
+            <point key="canvasLocation" x="353" y="746"/>
         </scene>
     </scenes>
     <resources>
