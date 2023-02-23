@@ -46,7 +46,6 @@
 		13229482299A355300C4938B = {
 			isa = PBXGroup;
 			children = (
-				13A5DA1929A79CF6006A1025 /* FavoritesViewController.swift */,
 				1322948D299A355300C4938B /* BoxOffice4SIM3 */,
 				1322948C299A355300C4938B /* Products */,
 			);
@@ -63,6 +62,7 @@
 		1322948D299A355300C4938B /* BoxOffice4SIM3 */ = {
 			isa = PBXGroup;
 			children = (
+				13A5DA1929A79CF6006A1025 /* FavoritesViewController.swift */,
 				1322948E299A355300C4938B /* AppDelegate.swift */,
 				13229490299A355300C4938B /* SceneDelegate.swift */,
 				13229492299A355300C4938B /* ViewController.swift */,
