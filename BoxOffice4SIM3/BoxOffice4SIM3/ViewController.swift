@@ -18,6 +18,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         "The Irishman"
     ]
     
+    let DETAILS_SEGUE = "detailSeg"
+    let FAVORITES_SEGUE = "favSeg"
+    
+    @IBAction func goToFavorites(_ sender: Any) {
+        performSegue(withIdentifier: FAVORITES_SEGUE, sender: sender)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -28,16 +35,20 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "detailSeg", sender: indexPath)
+        performSegue(withIdentifier: DETAILS_SEGUE, sender: indexPath)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == DETAILS_SEGUE {
         
         let dest = segue.destination as! DetailsViewController
         
         let index = sender as! IndexPath
         
         dest.name = data[index.row]
+            
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

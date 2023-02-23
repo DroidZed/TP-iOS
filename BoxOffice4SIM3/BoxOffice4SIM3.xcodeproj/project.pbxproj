@@ -15,6 +15,7 @@
 		1322949B299A355500C4938B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1322949A299A355500C4938B /* Assets.xcassets */; };
 		1322949E299A355500C4938B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1322949C299A355500C4938B /* LaunchScreen.storyboard */; };
 		137BB431299E64D700B8BE2E /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137BB430299E64D700B8BE2E /* DetailsViewController.swift */; };
+		13A5DA1A29A79CF6006A1025 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A5DA1929A79CF6006A1025 /* FavoritesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		1322949D299A355500C4938B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1322949F299A355500C4938B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		137BB430299E64D700B8BE2E /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		13A5DA1929A79CF6006A1025 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +46,7 @@
 		13229482299A355300C4938B = {
 			isa = PBXGroup;
 			children = (
+				13A5DA1929A79CF6006A1025 /* FavoritesViewController.swift */,
 				1322948D299A355300C4938B /* BoxOffice4SIM3 */,
 				1322948C299A355300C4938B /* Products */,
 			);
@@ -148,6 +151,7 @@
 				13229493299A355300C4938B /* ViewController.swift in Sources */,
 				1322948F299A355300C4938B /* AppDelegate.swift in Sources */,
 				13229491299A355300C4938B /* SceneDelegate.swift in Sources */,
+				13A5DA1A29A79CF6006A1025 /* FavoritesViewController.swift in Sources */,
 				137BB431299E64D700B8BE2E /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
