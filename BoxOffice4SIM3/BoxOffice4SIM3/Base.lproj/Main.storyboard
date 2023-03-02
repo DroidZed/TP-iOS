@@ -114,7 +114,7 @@
                                     </attributedString>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="addToFavsAction:" destination="lW5-Br-y2L" eventType="touchUpInside" id="ufU-88-MeY"/>
+                                    <action selector="addToFavsAction:" destination="lW5-Br-y2L" eventType="touchUpInside" id="rNk-B2-2BW"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -123,6 +123,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="saa-vM-5j3"/>
                     <connections>
+                        <outlet property="favsButton" destination="VF4-OC-PbO" id="Np5-uG-PKl"/>
                         <outlet property="movieArt" destination="QPK-VA-GPN" id="p0c-og-LXP"/>
                         <outlet property="movieTitle" destination="YDy-kl-Od4" id="E5B-Tp-nWl"/>
                     </connections>
@@ -200,6 +201,7 @@
                                 </cells>
                                 <connections>
                                     <outlet property="dataSource" destination="dmW-XA-Cna" id="pgD-au-eqQ"/>
+                                    <outlet property="delegate" destination="dmW-XA-Cna" id="2fB-gP-wUJ"/>
                                 </connections>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dq8-Mk-n7x">

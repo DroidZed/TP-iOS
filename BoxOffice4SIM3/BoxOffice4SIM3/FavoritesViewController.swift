@@ -8,7 +8,7 @@
 import UIKit
 import CoreData
 
-class FavoritesViewController: UIViewController, UICollectionViewDataSource  {
+class FavoritesViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate  {
     
     var movies: [String] = []
     
@@ -31,15 +31,10 @@ class FavoritesViewController: UIViewController, UICollectionViewDataSource  {
         return cell
     }
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-    }
-    
-    func loadData() {
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {

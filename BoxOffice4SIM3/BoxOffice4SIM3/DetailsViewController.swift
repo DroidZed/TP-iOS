@@ -13,6 +13,7 @@ class DetailsViewController: UIViewController {
     
     @IBOutlet weak var movieArt: UIImageView!
     @IBOutlet weak var movieTitle: UILabel!
+    @IBOutlet weak var favsButton: UIButton!
     
     var name: String!
     
@@ -22,14 +23,55 @@ class DetailsViewController: UIViewController {
         movieTitle.text = name!
         movieArt.image=UIImage(named: name!)
         
+        if checkIfExists() {
+            favsButton.isEnabled = false
+        }
+        
     }
     
     @IBAction func addToFavsAction(_ sender: Any) {
-        let alertController = UIAlertController(title: "Alert", message: "Do you want to add this movie to your favorites?", preferredStyle: .alert)
+        showAlert(title: "Alert", message: "Do you want to add this movie to your favorites?", okHandler: {_  in self.save()})
+    }
+    
+    
+    func showAlert(title: String, message: String, okHandler: ((UIAlertAction) -> Void)?) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
                 
-        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: {_  in self.save()}))
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: okHandler))
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func checkIfExists() -> Bool {
+        //1
+        guard let appDelegate =
+          UIApplication.shared.delegate as? AppDelegate else {
+            return false
+        }
+        
+        let managedContext =
+          appDelegate.persistentContainer.viewContext
+        
+        //2
+        let fetchRequest =
+          NSFetchRequest<NSManagedObject>(entityName: "Movies")
+        
+        fetchRequest.predicate = NSPredicate(
+            format: "name LIKE %@", name
+        )
+        
+        do {
+            let result = try managedContext.fetch(fetchRequest).first
+            
+            if result == nil {
+                return false
+            }
+        }
+        catch let _ as NSError {
+            print("Error fetching data...")
+        }
+        
+        return true
     }
     
     func save() {
@@ -51,13 +93,12 @@ class DetailsViewController: UIViewController {
                                    insertInto: managedContext)
       
       // 3
-        movie.setValue(self.name, forKeyPath: "name")
+        movie.setValue(name, forKeyPath: "name")
       
       // 4
       do {
         try managedContext.save()
-        print("saved")
-          self.showToast(message: "saved", seconds: 2)
+          showToast(message: "Saved", seconds: 0.75)
       } catch let error as NSError {
         print("Could not save. \(error), \(error.userInfo)")
       }
