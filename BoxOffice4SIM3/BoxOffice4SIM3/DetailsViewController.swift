@@ -67,7 +67,7 @@ class DetailsViewController: UIViewController {
                 return false
             }
         }
-        catch let _ as NSError {
+        catch _ as NSError {
             print("Error fetching data...")
         }
         
