@@ -12,6 +12,7 @@ class FavoritesViewController: UIViewController, UICollectionViewDataSource, UIC
     
     var movies: [String] = []
     
+    @IBOutlet weak var favsCol: UICollectionView!
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return movies.count
     }
@@ -28,17 +29,61 @@ class FavoritesViewController: UIViewController, UICollectionViewDataSource, UIC
         movieName.text = name
         image.image = UIImage(named: name)
         
+        let delSwipe = UISwipeGestureRecognizer(target: self, action: #selector(delAction))
+        
+        delSwipe.direction = UISwipeGestureRecognizer.Direction.right
+        
+        cell.addGestureRecognizer(delSwipe)
+        
         return cell
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    @objc private func delAction(sender: UISwipeGestureRecognizer) {
+        let cell = sender.view as! UICollectionViewCell
+        let itemIndex = self.favsCol!.indexPath(for: cell)!.item
+        
+        let removed = movies[itemIndex]
+        
+        movies.remove(at: itemIndex)
+        
+        //1
+        guard let appDelegate =
+          UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        let managedContext =
+          appDelegate.persistentContainer.viewContext
+        
+        // 2
+        let entity =
+          NSEntityDescription.entity(forEntityName: "Movies",
+                                     in: managedContext)!
+        
+        //2
+        let fetchRequest =
+          NSFetchRequest<NSManagedObject>(entityName: "Movies")
+        
+        fetchRequest.predicate = NSPredicate(
+            format: "name LIKE %@", removed
+        )
+        
+        do {
+            let result = try managedContext.fetch(fetchRequest).first
+            
+            if result != nil {
+                
+                managedContext.delete(result!)
+            }
+        }
+        catch _ as NSError {
+            print("Error fetching data...")
+        }
+        self.favsCol.reloadData()
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-      super.viewWillAppear(animated)
+
+    override func viewDidLoad() {
+      super.viewDidLoad()
       
       //1
       guard let appDelegate =

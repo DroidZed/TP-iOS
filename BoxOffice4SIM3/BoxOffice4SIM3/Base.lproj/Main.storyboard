@@ -223,6 +223,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="REY-U2-bVQ"/>
+                    <connections>
+                        <outlet property="favsCol" destination="RvB-SC-Fzi" id="Fan-7u-Aae"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="73A-fb-IS9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
