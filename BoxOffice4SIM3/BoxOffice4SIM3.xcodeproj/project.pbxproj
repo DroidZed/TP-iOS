@@ -16,6 +16,8 @@
 		1322949E299A355500C4938B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1322949C299A355500C4938B /* LaunchScreen.storyboard */; };
 		137BB431299E64D700B8BE2E /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137BB430299E64D700B8BE2E /* DetailsViewController.swift */; };
 		13A5DA1A29A79CF6006A1025 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A5DA1929A79CF6006A1025 /* FavoritesViewController.swift */; };
+		13C9484E29BA2BFB000DC1BB /* Consts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C9484D29BA2BFB000DC1BB /* Consts.swift */; };
+		13C9485129BA2CF4000DC1BB /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C9485029BA2CF4000DC1BB /* Movie.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		1322949F299A355500C4938B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		137BB430299E64D700B8BE2E /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		13A5DA1929A79CF6006A1025 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		13C9484D29BA2BFB000DC1BB /* Consts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Consts.swift; sourceTree = "<group>"; };
+		13C9485029BA2CF4000DC1BB /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +66,8 @@
 		1322948D299A355300C4938B /* BoxOffice4SIM3 */ = {
 			isa = PBXGroup;
 			children = (
+				13C9484F29BA2CE0000DC1BB /* data */,
+				13C9484C29BA2BE1000DC1BB /* helpers */,
 				13A5DA1929A79CF6006A1025 /* FavoritesViewController.swift */,
 				1322948E299A355300C4938B /* AppDelegate.swift */,
 				13229490299A355300C4938B /* SceneDelegate.swift */,
@@ -74,6 +80,22 @@
 				137BB430299E64D700B8BE2E /* DetailsViewController.swift */,
 			);
 			path = BoxOffice4SIM3;
+			sourceTree = "<group>";
+		};
+		13C9484C29BA2BE1000DC1BB /* helpers */ = {
+			isa = PBXGroup;
+			children = (
+				13C9484D29BA2BFB000DC1BB /* Consts.swift */,
+			);
+			path = helpers;
+			sourceTree = "<group>";
+		};
+		13C9484F29BA2CE0000DC1BB /* data */ = {
+			isa = PBXGroup;
+			children = (
+				13C9485029BA2CF4000DC1BB /* Movie.swift */,
+			);
+			path = data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,7 +173,9 @@
 				13229493299A355300C4938B /* ViewController.swift in Sources */,
 				1322948F299A355300C4938B /* AppDelegate.swift in Sources */,
 				13229491299A355300C4938B /* SceneDelegate.swift in Sources */,
+				13C9484E29BA2BFB000DC1BB /* Consts.swift in Sources */,
 				13A5DA1A29A79CF6006A1025 /* FavoritesViewController.swift in Sources */,
+				13C9485129BA2CF4000DC1BB /* Movie.swift in Sources */,
 				137BB431299E64D700B8BE2E /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

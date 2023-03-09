@@ -18,6 +18,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         "The Irishman"
     ]
     
+    var moviesL: [Movie] = []
+    
     let DETAILS_SEGUE = "detailSeg"
     let FAVORITES_SEGUE = "favSeg"
     
@@ -31,7 +33,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.count
+        return moviesL.count
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -46,7 +48,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         let index = sender as! IndexPath
         
-        dest.name = data[index.row]
+        dest.name = moviesL[index.row]
             
         }
     }

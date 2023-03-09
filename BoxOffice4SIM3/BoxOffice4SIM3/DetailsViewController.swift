@@ -15,13 +15,25 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var movieTitle: UILabel!
     @IBOutlet weak var favsButton: UIButton!
     
-    var name: String!
+    var movie: Movie!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        movieTitle.text = name!
-        movieArt.image=UIImage(named: name!)
+        movieTitle.text = movie.Title
+        //movieArt.image=UIImage(data: movie.Poster!)
+        
+        guard let url = URL(string: movie.Poster) else {
+                  return
+              }
+        
+        DispatchQueue.main.async { [weak self] in
+            if let imageData = try? Data(contentsOf: url) {
+                      if let loadedImage = UIImage(data: imageData) {
+                          self?.movieArt.image = loadedImage
+                      }
+                  }
+              }
         
         if checkIfExists() {
             favsButton.isEnabled = false
@@ -57,7 +69,7 @@ class DetailsViewController: UIViewController {
           NSFetchRequest<NSManagedObject>(entityName: "Movies")
         
         fetchRequest.predicate = NSPredicate(
-            format: "name LIKE %@", name
+            format: "title LIKE %@", movie.Title
         )
         
         do {
@@ -89,11 +101,14 @@ class DetailsViewController: UIViewController {
         NSEntityDescription.entity(forEntityName: "Movies",
                                    in: managedContext)!
       
-      let movie = NSManagedObject(entity: entity,
+      let obj = NSManagedObject(entity: entity,
                                    insertInto: managedContext)
       
       // 3
-        movie.setValue(name, forKeyPath: "name")
+        obj.setValue(movie.Title, forKeyPath: "title")
+        obj.setValue(movie.Poster, forKey: "poster")
+        obj.setValue(movie.Runtime, forKey: "runtime")
+        obj.setValue(movie.Year, forKey: "year")
       
       // 4
       do {

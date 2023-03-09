@@ -10,7 +10,7 @@ import CoreData
 
 class FavoritesViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate  {
     
-    var movies: [String] = []
+    var movies: [Movie] = []
     
     @IBOutlet weak var favsCol: UICollectionView!
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -24,10 +24,10 @@ class FavoritesViewController: UIViewController, UICollectionViewDataSource, UIC
         let image = contentView?.viewWithTag(1) as! UIImageView
         let movieName = contentView?.viewWithTag(2) as! UILabel
         
-        let name = movies[indexPath.row]
+        let movie = movies[indexPath.row]
         
-        movieName.text = name
-        image.image = UIImage(named: name)
+        movieName.text = movie.Title
+       // image.image = UIImage(named: movie.Title)
         
         let delSwipe = UISwipeGestureRecognizer(target: self, action: #selector(delAction))
         
@@ -60,7 +60,7 @@ class FavoritesViewController: UIViewController, UICollectionViewDataSource, UIC
           NSFetchRequest<NSManagedObject>(entityName: "Movies")
         
         fetchRequest.predicate = NSPredicate(
-            format: "name LIKE %@", removed
+            format: "title LIKE %@", removed.Title
         )
         
         do {
@@ -97,14 +97,16 @@ class FavoritesViewController: UIViewController, UICollectionViewDataSource, UIC
       do {
           
           for data in try managedContext.fetch(fetchRequest) {
-              movies.append(data.value(forKey: "name") as! String)
+              let movie = Movie(Title: data.value(forKey: "title") as! String,
+                                Year: data.value(forKey: "year") as! String,
+                                Runtime: data.value(forKey: "runtime") as! String,
+                                Poster: data.value(forKey: "poster") as! String
+                                )
+              movies.append(movie)
          }
           
       } catch let error as NSError {
         print("Could not fetch. \(error), \(error.userInfo)")
       }
     }
-
-
-
 }
