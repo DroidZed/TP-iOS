@@ -55,11 +55,6 @@ class FavoritesViewController: UIViewController, UICollectionViewDataSource, UIC
         let managedContext =
           appDelegate.persistentContainer.viewContext
         
-        // 2
-        let entity =
-          NSEntityDescription.entity(forEntityName: "Movies",
-                                     in: managedContext)!
-        
         //2
         let fetchRequest =
           NSFetchRequest<NSManagedObject>(entityName: "Movies")
